@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    runs:
+      using: 'node20'
+      main: 'main.js'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -28,4 +31,4 @@ jobs:
           npx angular-cli-ghpages --dir=dist/pages-test
         env:
           CI: true
-          GH_TOKEN: ${{ secrets.PAGES_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
